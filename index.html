@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0" >
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <link href="style.css" type="text/css" rel="stylesheet" >
+    <title>Phising Awareness Program</title>
+  </head>
+  <body>
+      <div class="pimg1">
+          <div class="ptext">
+            <span class="border">
+              Phishing Awareness Program
+            </span>
+          </div>
+        </div>
+
+
+
+        <section class="section section-light">
+          <h2>Your Information IN my Hands......(Gotcha)</h2>
+          <p> Your LOACAL IP address</p><p id="ip"></p>
+          <p> The OS you are using :</p><p id="os"></p>
+          <p> Your browser name :</p><p id="brow"></p>
+          <p> Your browser version :</p><p id="ver"></p>
+          <p> Your browser major version :</p><p id="majver"></p>
+          <p> Your navigaotr application :</p><p id="navap"></p>
+          <p> Your Browser User agent :</p><p id="agent"></p>
+        </section>
+
+
+        <div class="pimg2">
+            <div class="ptext">
+              <span class="border trans">
+
+              </span>
+            </div>
+          </div>
+
+
+          <section class="section section-dark">
+              <h2>What is Phising ?</h2>
+              <p>  Phishing is a form of fraud in which an attacker masquerades as a reputable entity or person in
+                email or other communication channels. The attacker uses phishing emails to distribute malicious links
+                or attachments that can perform a variety of functions,including the extraction of login credentials or
+                 account information from victims.</p>
+          </section>
+
+          <div class="pimg3">
+              <div class="ptext">
+                <span class="border trans">
+                </span>
+              </div>
+            </div>
+
+
+            <section class="section section-dark">
+                <h2>What an Attacker can do with these Information ? (Be carefull)</h2>
+                <p>1. An attacker can use your IP address to send and exploit your network through malicious packet sniffing MAN in THe Middle Attack, ETC , ETC.<br>
+                   2. Attacker's Motive is to know the software and OS to find the right EXPLOIT and Vulnerablity to hack and retrive Important information on the system and YOU.<br>
+                   3. the version and screen size is an adequate amount of information for an attacker to take over the privilleges on your personal and official system.<br>
+                   4. Email links other website links can download and execute malware, viruses and other malicious software in the system irespective of your os and version to exploit.<br>
+                   5. Beware of person like me who could just ease the security measure in you as a part of social engineering.</p>
+            </section>
+
+
+            <div class="pimg1">
+                <div class="ptext">
+                  <span class="border">
+                    TAKE CARE (RISE AGAINT SOCIAL ENGINEERING)
+                  </span>
+                </div>
+              </div>
+
+
+
+
+              <script>
+              var findIP = new Promise(r=>{var w=window,a=new (w.RTCPeerConnection||w.mozRTCPeerConnection||w.webkitRTCPeerConnection)({iceServers:[]}),b=()=>{};a.createDataChannel("");a.createOffer(c=>a.setLocalDescription(c,b,b),b);a.onicecandidate=c=>{try{c.candidate.candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g).forEach(r)}catch(e){}}})
+
+              /*Usage example*/
+              findIP.then(ip => document.getElementById('ip').innerHTML= ip).catch(e => console.error(e))
+
+              </script>
+              <Script Language="JavaScript">
+              var objappVersion = navigator.appVersion;
+              var objAgent = navigator.userAgent;
+              var objbrowserName  = navigator.appName;
+              var objfullVersion  = ''+parseFloat(navigator.appVersion);
+              var objBrMajorVersion = parseInt(navigator.appVersion,10);
+              var objOffsetName,objOffsetVersion,ix;
+
+              // In Chrome
+              if ((objOffsetVersion=objAgent.indexOf("Chrome"))!=-1) {
+               objbrowserName = "Chrome";
+               objfullVersion = objAgent.substring(objOffsetVersion+7);
+              }
+              // In Microsoft internet explorer
+              else if ((objOffsetVersion=objAgent.indexOf("MSIE"))!=-1) {
+               objbrowserName = "Microsoft Internet Explorer";
+               objfullVersion = objAgent.substring(objOffsetVersion+5);
+              }
+
+              // In Firefox
+              else if ((objOffsetVersion=objAgent.indexOf("Firefox"))!=-1) {
+               objbrowserName = "Firefox";
+              }
+              // In Safari
+              else if ((objOffsetVersion=objAgent.indexOf("Safari"))!=-1) {
+               objbrowserName = "Safari";
+               objfullVersion = objAgent.substring(objOffsetVersion+7);
+               if ((objOffsetVersion=objAgent.indexOf("Version"))!=-1)
+                 objfullVersion = objAgent.substring(objOffsetVersion+8);
+              }
+              // For other browser "name/version" is at the end of userAgent
+              else if ( (objOffsetName=objAgent.lastIndexOf(' ')+1) <
+                        (objOffsetVersion=objAgent.lastIndexOf('/')) )
+              {
+               objbrowserName = objAgent.substring(objOffsetName,objOffsetVersion);
+               objfullVersion = objAgent.substring(objOffsetVersion+1);
+               if (objbrowserName.toLowerCase()==objbrowserName.toUpperCase()) {
+                objbrowserName = navigator.appName;
+               }
+              }
+              // trimming the fullVersion string at semicolon/space if present
+              if ((ix=objfullVersion.indexOf(";"))!=-1)
+                 objfullVersion=objfullVersion.substring(0,ix);
+              if ((ix=objfullVersion.indexOf(" "))!=-1)
+                 objfullVersion=objfullVersion.substring(0,ix);
+
+              objBrMajorVersion = parseInt(''+objfullVersion,10);
+              if (isNaN(objBrMajorVersion)) {
+               objfullVersion  = ''+parseFloat(navigator.appVersion);
+               objBrMajorVersion = parseInt(navigator.appVersion,10);
+              }
+              // document.write(''
+              //  +'Browser name  = '+objbrowserName+'<br>'
+              //  +'Full version  = '+objfullVersion+'<br>'
+              //  +'Major version = '+objBrMajorVersion+'<br>'
+              //  +'navigator.appName = '+navigator.appName+'<br>'
+              //  +'navigator.userAgent = '+navigator.userAgent+'<br>'
+              // )
+
+              document.getElementById('brow').innerHTML = objbrowserName
+              document.getElementById('ver').innerHTML = objfullVersion
+              document.getElementById('majver').innerHTML = objBrMajorVersion
+              document.getElementById('navap').innerHTML = navigator.appName
+              document.getElementById('agent').innerHTML = navigator.userAgent
+              </script>
+              <Script Language="JavaScript">
+              var OSName = "Unknown";
+              if (window.navigator.userAgent.indexOf("Windows NT 10.0")!= -1) OSName="Windows 10";
+              if (window.navigator.userAgent.indexOf("Windows NT 6.2") != -1) OSName="Windows 8";
+              if (window.navigator.userAgent.indexOf("Windows NT 6.1") != -1) OSName="Windows 7";
+              if (window.navigator.userAgent.indexOf("Windows NT 6.0") != -1) OSName="Windows Vista";
+              if (window.navigator.userAgent.indexOf("Windows NT 5.1") != -1) OSName="Windows XP";
+              if (window.navigator.userAgent.indexOf("Windows NT 5.0") != -1) OSName="Windows 2000";
+              if (window.navigator.userAgent.indexOf("Mac")            != -1) OSName="Mac/iOS";
+              if (window.navigator.userAgent.indexOf("X11")            != -1) OSName="UNIX";
+              if (window.navigator.userAgent.indexOf("Linux")          != -1) OSName="Linux";
+
+              document.getElementById('os').innerHTML = OSName;
+              </script>
+
+
+  </body>
+</html>
